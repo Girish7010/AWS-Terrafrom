@@ -1,2 +1,2 @@
-# AWS-Terrafrom
-this will help to create aws resources
+# AWS-Terraform
+This will help to create AWS resources
