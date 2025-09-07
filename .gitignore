@@ -1,0 +1,27 @@
+# Ignore Python virtual environment
+venv/
+__pycache__/
+
+# Ignore Terraform state and cache
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate
+*.tfstate.*
+
+# Ignore local environment configs
+*.tfvars
+*.tfvars.json
+
+# Ignore key files
+*.pem
+*.key
+*.cer
+
+# Ignore logs
+*.log
+
+# Ignore IDE/project files
+.vscode/
+.idea/

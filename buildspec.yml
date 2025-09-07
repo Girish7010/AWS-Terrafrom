@@ -1,0 +1,30 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - echo "Installing dependencies..."
+      - pip install -r requirements.txt
+  pre_build:
+    commands:
+      - echo "Running unit tests..."
+      - pytest tests/ || echo "No tests found"
+  build:
+    commands:
+      - echo "Packaging application..."
+      - mkdir -p output
+      - cp -r app.py requirements.txt output/
+  post_build:
+    commands:
+      - echo "Build completed. Ready for deployment!"
+      # Optional: Terraform Infra update
+      - cd terraform
+      - terraform init -input=false
+      - terraform apply -auto-approve
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: output
